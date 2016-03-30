@@ -52,6 +52,8 @@ message MsgGetMissingCmd
 	required int32 playerIndex = 1;
 	required int32 frame = 2;
 }
+
+// +gen * slice:"First"
 message GenMessage
 {
 	required MessageType msgType = 1;
