@@ -30,7 +30,8 @@ message MsgPlayerEnterRoom
 message MsgEnterRoomReply
 {
 	repeated int32 players = 1;
-	required EnterRoomResult result = 2;
+	required int32 allockedIndex = 2;
+	required EnterRoomResult result = 3;
 }
 
 message WorldMessage
