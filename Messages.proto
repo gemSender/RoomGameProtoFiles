@@ -49,7 +49,7 @@ message MsgCreateObj
 
 message MsgGetMissingCmd
 {
-	required string player = 1;
+	required int32 playerIndex = 1;
 	required int32 frame = 2;
 }
 message GenMessage

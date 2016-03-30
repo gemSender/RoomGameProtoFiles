@@ -23,13 +23,13 @@ enum EnterRoomResult
 
 message MsgPlayerEnterRoom
 {
-	required string roomId = 1;
-	required string playerId = 2;
+	required int32 roomId = 1;
+	required int32 playerIndex = 2;
 }
 
 message MsgEnterRoomReply
 {
-	repeated string players = 1;
+	repeated int32 players = 1;
 	required EnterRoomResult result = 2;
 }
 
@@ -43,7 +43,7 @@ message WorldMessage
 
 message Room
 {
-	required string id = 1;
+	required int32 id = 1;
 	required int32 playerCount = 2;
 	required int32 capacity = 3;
 }
@@ -62,7 +62,7 @@ message MsgGetRoomListReply
 
 message MsgCreateRoomReply
 {
-	required int32 errorCode = 1;
-	required string id = 2;
+	optional int32 errorCode = 1 [default = 0];
+	required int32 id = 2;
 	required int32 capacity = 3;
 }
