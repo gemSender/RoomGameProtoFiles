@@ -11,6 +11,7 @@ enum MessageType
 	QuitRoomReply = 7;
 	GetRoomListReply = 8;
 	PlayerEnterRoom = 9;
+	PlayerCreateRoom = 10;
 }
 
 enum EnterRoomResult
@@ -66,4 +67,10 @@ message MsgCreateRoomReply
 	optional int32 errorCode = 1 [default = 0];
 	required int32 id = 2;
 	required int32 capacity = 3;
+}
+
+message MsgPlayerCreateRoom
+{
+	required int32 roomId = 1;
+	required string playerId = 2;
 }
