@@ -1,19 +1,5 @@
 syntax = "proto2";
 package world_messages;
-enum MessageType
-{
-	CreateRoom = 1;
-	EnterRoom = 2;
-	QuitRoom = 3;
-	GetRoomList = 4;
-	CreateRoomReply = 5;
-	EnterRoomReply = 6;
-	QuitRoomReply = 7;
-	GetRoomListReply = 8;
-	PlayerEnterRoom = 9;
-	PlayerCreateRoom = 10;
-	PlayerQuitRoom = 11;
-}
 
 enum EnterRoomResult
 {
@@ -23,26 +9,19 @@ enum EnterRoomResult
 	RoomNotExists = 4;
 }
 
-message MsgPlayerEnterRoom
+message PlayerEnterRoom
 {
 	required int32 roomId = 1;
 	required int32 playerIndex = 2;
 }
 
-message MsgEnterRoomReply
+message EnterRoomReply
 {
 	repeated int32 players = 1;
 	required int32 allockedIndex = 2;
 	required EnterRoomResult result = 3;
 }
 
-message WorldMessage
-{
-	required MessageType type = 1;
-	required string playerId = 2;
-	optional bytes buff = 3;
-	required int32 msgId = 4;
-}
 
 message Room
 {
@@ -53,33 +32,53 @@ message Room
 
 message ReplyMsg
 {
-	required MessageType type = 1;
+	required string type = 1;
 	required int32 msgId = 2;
 	required bytes buff = 3;
 }
 
-message MsgGetRoomListReply
+message GetRoomListReply
 {
 	repeated Room rooms = 1;
 }
 
-message MsgCreateRoomReply
+message CreateRoomReply
 {
 	optional int32 errorCode = 1 [default = 0];
 	required int32 id = 2;
 	required int32 capacity = 3;
 }
 
-message MsgPlayerCreateRoom
+message PlayerCreateRoom
 {
 	required int32 roomId = 1;
 	required string playerId = 2;
 	required int32 capacity = 3;
 }
 
-message MsgPlayerQuitRoom
+message PlayerQuitRoom
 {
 	required int32 roomId = 1;
 	required string playerId = 2;
 	required int32  playerIndex = 3;
+}
+
+message CreateRoom{
+	required int32 capacity = 1;
+}
+
+message EnterRoom{
+	required int32 roomId = 1;
+}
+
+message GetRoomList{
+
+}
+
+message Login{
+	required string playerId = 1;
+}
+
+message LoginReply{
+	required int32 errorCode = 1;
 }
