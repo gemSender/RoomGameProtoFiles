@@ -1,0 +1,55 @@
+syntax = "proto2";
+package room_messages;
+
+message Vec3{
+	required float x = 1;
+	required float y = 2;
+	required float z = 3;
+}
+
+message Quat{
+	required float x = 1;
+	required float y = 2;
+	required float z = 3;
+	required float w = 4;
+}
+
+message Color4
+{
+	required float r = 1;
+	required float g = 2;
+	required float b = 3;
+	required float a = 4;
+}
+
+message Rpc
+{
+	required int32 netId = 1;
+	required string method = 2;
+	required bytes argbuf = 3;
+	required int32 frame = 4;
+}
+
+message CreateObj
+{
+	required string path = 1;
+	required Vec3 pos = 2;
+	required Quat rot = 3;
+	required int32 frame = 4;
+}
+
+message GetMissingCmd
+{
+	required int32 playerIndex = 1;
+	required int32 frame = 2;
+}
+
+message ReadyForGame
+{
+	required int32 frame = 1;
+}
+
+message Empty
+{
+	required int32 frame = 1;
+}
