@@ -4,7 +4,7 @@ package messages;
 message GenMessage
 {
     required string type = 1;
-    required int32 pIdx = 2;
+    optional int32 pIdx = 2 [default = 0];
     required int32 msgId = 3;
     optional bytes buf = 4;
 }
