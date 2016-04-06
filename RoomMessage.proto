@@ -1,5 +1,5 @@
 syntax = "proto2";
-package room_messages;
+package room;
 
 message Vec3{
 	required float x = 1;
@@ -30,7 +30,7 @@ message Rpc
 	required int32 frame = 4;
 }
 
-message CreateObj
+message CrtObj
 {
 	required string path = 1;
 	required Vec3 pos = 2;
@@ -38,13 +38,13 @@ message CreateObj
 	required int32 frame = 4;
 }
 
-message GetMissingCmd
+message GetMisCmd
 {
 	required int32 playerIndex = 1;
 	required int32 frame = 2;
 }
 
-message ReadyForGame
+message Ready
 {
 	required int32 frame = 1;
 }

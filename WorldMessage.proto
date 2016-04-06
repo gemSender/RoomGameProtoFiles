@@ -1,5 +1,5 @@
 syntax = "proto2";
-package world_messages;
+package world;
 
 enum EnterRoomResult
 {
@@ -15,37 +15,11 @@ message PlayerEnterRoom
 	required int32 playerIndex = 2;
 }
 
-message EnterRoomReply
-{
-	repeated int32 players = 1;
-	required int32 allockedIndex = 2;
-	required EnterRoomResult result = 3;
-}
-
 
 message Room
 {
 	required int32 id = 1;
 	required int32 playerCount = 2;
-	required int32 capacity = 3;
-}
-
-message ReplyMsg
-{
-	required string type = 1;
-	required int32 msgId = 2;
-	required bytes buff = 3;
-}
-
-message GetRoomListReply
-{
-	repeated Room rooms = 1;
-}
-
-message CreateRoomReply
-{
-	optional int32 errorCode = 1 [default = 0];
-	required int32 id = 2;
 	required int32 capacity = 3;
 }
 
@@ -67,12 +41,31 @@ message CreateRoom{
 	required int32 capacity = 1;
 }
 
+message CreateRoomReply
+{
+	optional int32 errorCode = 1 [default = 0];
+	required int32 id = 2;
+	required int32 capacity = 3;
+}
+
 message EnterRoom{
 	required int32 roomId = 1;
 }
 
+message EnterRoomReply
+{
+	repeated int32 players = 1;
+	required int32 allockedIndex = 2;
+	required EnterRoomResult result = 3;
+}
+
 message GetRoomList{
 
+}
+
+message GetRoomListReply
+{
+	repeated Room rooms = 1;
 }
 
 message Login{
