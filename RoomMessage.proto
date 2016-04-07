@@ -22,12 +22,17 @@ message Color4
 	required float a = 4;
 }
 
-message Rpc
+message RpcCall
 {
 	required int32 netId = 1;
 	required string method = 2;
 	required bytes argbuf = 3;
-	required int32 frame = 4;
+}
+
+message Ops
+{
+	required int32 frame = 1;
+	repeated RpcCall list = 2;
 }
 
 message CrtObj
