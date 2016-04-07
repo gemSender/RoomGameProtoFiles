@@ -56,7 +56,8 @@ message EnterRoomReply
 {
 	repeated int32 players = 1;
 	required int32 allockedIndex = 2;
-	required EnterRoomResult result = 3;
+	required int32 roomId = 3;
+	required EnterRoomResult result = 4;
 }
 
 message GetRoomList{
@@ -74,4 +75,10 @@ message Login{
 
 message LoginReply{
 	required int32 errorCode = 1;
+}
+
+message StartGame{
+	required int32 myIndex = 1;
+	required string address = 2;
+	repeated int32 playerIndices = 3;
 }
